@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Biblioteca</title>
+    <style>
+      nav {
+        background-color: #f8f9fa;
+        padding: 10px;
+        margin-bottom: 20px;
+      }
+      nav a {
+        margin-right: 15px;
+        text-decoration: none;
+        color: #007bff;
+      }
+      main {
+        padding: 20px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f8f9fa;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="{% url 'core:home' %}">Início</a>
+      <a href="{% url 'core:lista_livros' %}">Livros</a>
+      <a href="{% url 'core:cadastrar_livro' %}">Cadastrar Livro</a>
+    </nav>
+    
+    <style>
+      nav {
+        position: relative; /* Permite ajustar os links dentro do nav */
+      }
+    
+      nav a {
+        position: absolute; /* Permite controle direto da posição */
+        text-decoration: none; /* Remove o sublinhado */
+        color: #007bff; /* Define a cor do texto */
+        font-size: 18px; /* Tamanho da fonte */
+      }
+    
+      /* Posicionamento individual de cada link */
+      nav a:nth-child(1) { /* Primeiro link: "Início" */
+        top: 0px; /* Posição vertical */
+        left: 100px; /* Posição horizontal */
+        color: black; /* Cor preta */ 
+        text-decoration: none; /* Remove o sublinhado do link */
+      }
+    
+      nav a:nth-child(2) { /* Segundo link: "Livros" */ 
+      top: 240px; /* Posição vertical */ 
+      left: 50%; /* Posição horizontal */ 
+      transform: translateX(-50%); /* Ajusta a posição horizontal para o centro */ 
+      background-color: #d3d3d3; /* Cor de fundo cinza claro */ 
+      border-radius: 10px; /* Bordas arredondadas */ 
+      padding: 10px 20px; /* Espaçamento interno do botão */ 
+      display: inline-block; /* Torna o elemento um bloco inline */ 
+      text-decoration: none; /* Remove o sublinhado do link */ 
+      color: #000; /* Cor do texto */ /* font-weight: bold; Texto em negrito */ 
+      text-align: center; /* Alinhamento do texto */ 
+      transition: box-shadow 0.3s ease; /* Suaviza a transição do brilho */ 
+    } nav a:nth-child(2):hover { 
+        
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* Efeito de brilho */
+    
+    }
+      
+    nav a:nth-child(3) { /* Terceiro link: "Cadastrar Livro" */
+        top: 300px; /* Posição vertical */
+        left: 50%; /* Posição horizontal */
+        transform: translateX(-50%); /* Ajusta a posição horizontal para o centro */
+        background-color: #d3d3d3; /* Cor de fundo cinza claro */ 
+        border-radius: 10px; /* Bordas arredondadas */ 
+        padding: 10px 20px; /* Espaçamento interno do botão */ 
+        display: inline-block; /* Torna o elemento um bloco inline */ 
+        text-decoration: none; /* Remove o sublinhado do link */ 
+        color: #000; /* Cor do texto */ 
+        /* font-weight: bold;  Texto em negrito */ 
+        text-align: center; /* Alinhamento do texto */
+      }
+    </style>
+    
+
+    <main>{% block content %} {% endblock %}</main>
+  </body>
+</html>

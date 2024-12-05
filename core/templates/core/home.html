@@ -1,0 +1,95 @@
+{% extends 'core/base.html' %} 
+
+{% block content %}
+<style>
+  body {
+    display: flex;
+    flex-direction: column; /* Organiza os elementos em coluna */
+    margin: 10;
+    height: 100vh; /* Altura total da janela */
+  }
+
+ 
+
+  main {
+    flex: 1; /* Faz o conteúdo principal ocupar o espaço disponível */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    text-align: center;
+    margin-top: 0%;
+  }
+
+  h1 {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Adiciona sombra ao texto */
+    font-family: Arial, sans-serif; /* Define a fonte */
+    margin: 0;
+    margin-top: -100%;
+  }
+
+  footer {
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza verticalmente dentro do rodapé */
+    height: 60px;
+    background-color: #f1f1f1; /* Cor de fundo do rodapé (opcional) */
+    border-top: 1px solid #ccc; /* Linha separadora (opcional) */
+   
+  }
+
+  ul {
+    list-style-type: none; /* Remove os marcadores da lista */
+    padding: 0;
+    margin: 0;
+  }
+
+  ul li {
+    margin: 5px 0;
+  }
+
+  ul li a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 18px;
+  }
+</style>
+<style> header { position: absolute; } 
+header:nth-of-type(1) { 
+  top: -5px; 
+  left: 630px;
+  font-size: 70%; 
+  transform: translateX(-50%); 
+}
+
+header:nth-of-type(2) { 
+  top: -5px; 
+  left: 1150px; 
+  font-size: 70%; 
+   
+  }
+  
+</style>
+ 
+<header> 
+  <h2>Sobre</h2>
+</header>
+
+<header>
+  <h2>Explorar</h2>
+</header>
+
+<main>
+  <h1>Bem-vindo à Biblioteca</h1>
+  <p>Sistema de Gerenciamento de Biblioteca</p>
+</main>
+
+<footer >
+  <ul>
+    <li><a href="{% url 'core:lista_livros' %}">Livros</a></li>
+  
+  </ul>
+</footer>
+
+
+{% endblock %}

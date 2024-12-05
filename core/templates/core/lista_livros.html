@@ -1,0 +1,146 @@
+<!DOCTYPE html> 
+<html lang="pt-BR"> 
+  <head> <meta charset="UTF-8"> 
+  <title>Exemplo de Sombra em Texto</title> 
+  <style> 
+  h1 { text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra: 2px na horizontal, 2px na vertical, 5px de blur, cor preta com 50% de opacidade */ 
+    position: absolute; /* Para ajustar a posição */ 
+    top: 30px; /* Posição vertical */ 
+    left: 100px; /* Posição horizontal */ } 
+
+</style> 
+</head> 
+ <h1>Lista de Livros</h1> 
+</body> 
+</html>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Botão Estilizado</title>
+  <style>
+    .custom-button {
+      position: absolute; /* Permite ajustar a posição com top e left */
+      top: 550px; /* Posição vertical */
+      left: 70px; /* Posição horizontal */
+      background-color: #d3d3d3; /* Cor de fundo cinza claro */
+      color: #000; /* Cor do texto preta */
+      padding: 10px 20px; /* Espaçamento interno do botão */
+      border-radius: 10px; /* Bordas arredondadas */
+      text-decoration: none; /* Remove o sublinhado do link */
+      display: inline-block; /* Torna o elemento um bloco inline */
+      text-align: center; /* Alinhamento do texto */
+      transition: box-shadow 0.3s ease, transform 0.3s ease; /* Suaviza a transição do brilho */
+    }
+
+    .custom-button:hover {
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* Efeito de brilho */
+      transform: scale(1.05); /* Leve aumento de tamanho para destacar o botão */
+    }
+  </style>
+</head>
+<body>
+  <a href="{% url 'core:cadastrar_livro' %}" class="custom-button">
+    Cadastrar Novo Livro
+  </a>
+</body>
+</html>
+{% if livros %}
+<table class="table">
+  
+  <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta<!DOCTYPE html>
+  <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <title>Modificar Posição Horizontal do Contêiner</title>
+    <style>
+      .table-container {
+        width: 70%; /* Define a largura do contêiner da tabela */
+        position: relative; /* Permite ajustar a posição com left */
+        left: 10000px; /* Move o contêiner 100 pixels para a direita */
+        margin-top: 110px; /* Margem superior */
+      }
+      table {
+        width: 80%; /* Define a largura da tabela para 100% do contêiner */
+        border-collapse: collapse; /* Remove os espaços entre células */
+      }
+      th, td {
+        padding: 3px; /* Espaçamento interno das células */
+        border: 1px solid #ddd; /* Borda das células */
+        text-align: left; /* Alinhamento do texto */
+      }
+      th {
+        background-color: #f2f2f2; /* Cor de fundo para cabeçalhos */
+        height: 40px; /* Altura dos cabeçalhos */
+      }
+      td {
+        height: 20px; /* Altura das células */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>ISBN</th>
+            <th>Data de Publicação</th>
+            <th>Quantidade Total</th>
+            <th>Quantidade Disponível</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for livro in livros %}
+          <tr>
+            <td>{{ livro.titulo }}</td>
+            <td>{{ livro.autor.nome }}</td>
+            <td>{{ livro.isbn }}</td>
+            <td>{{ livro.data_publicacao|date:"d/m/Y" }}</td>
+            <td>{{ livro.quantidade_total }}</td>
+            <td>{{ livro.quantidade_disponivel }}</td>
+            <td>
+              {% if livro.quantidade_disponivel > 0 %}
+              <a
+                href="{% url 'core:emprestar_livro' livro.id %}"
+                class="btn btn-success"
+              >
+                Emprestar
+              </a>
+
+              {% endif %}
+              <a
+                href="{% url 'core:remover_livro' livro.id %}"
+                class="btn btn-danger"
+                onclick="return confirm('Tem certeza que deseja remover este livro?')"
+              >
+                Remover
+              </a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <p class="no-books">• Nenhum livro cadastrado.</p>
+      {% endif %}
+    </div>
+  </body>
+  </html>
+  
+
+
+  
+<style> .no-books { 
+  position: absolute; /* Permite ajustar a posição com top e left */ 
+  top: 110px; /* Posição vertical (ajuste conforme necessário) */ 
+  left: 100px; /* Posição horizontal (ajuste conforme necessário) */ 
+  font-size: 16px; /* Tamanho da fonte */ 
+  color: #000; /* Cor do texto */ } 
+  </style>
